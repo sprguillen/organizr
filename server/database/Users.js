@@ -27,6 +27,6 @@ const users = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-})
+}, { collection: 'documents' })
 
 module.exports = mongoose.model('Organizr', users)
