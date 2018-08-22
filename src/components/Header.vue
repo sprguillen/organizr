@@ -3,8 +3,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <nav class="collapse navbar-collapse">
         <menu-bar class="nav-item mr-auto"></menu-bar>
-        <img src="../assets/HiTechSmall.jpg" class="logo-small">
         <search-bar></search-bar>
+        <account-bar></account-bar>
       </nav>
     </nav>
   </div>
@@ -12,12 +12,14 @@
 <script>
 import MenuBar from '@/components/MenuBar';
 import SearchBar from '@/components/SearchBar';
+import AccountBar from '@/components/AccountBar';
 
 export default {
   name: 'Header',
   components: {
     'menu-bar': MenuBar,
     'search-bar': SearchBar,
+    'account-bar': AccountBar,
   },
 };
 </script>
@@ -27,4 +29,3 @@ export default {
   height: 2%;
 }
 </style>
-

@@ -12,6 +12,8 @@ const routes = express.Router()
 const Users = require('../database/Users')
 const config = require('./config')
 
+const saltRounds = 10;
+
 routes.route('/register').post((req, res) => {
   let usernameObj = {
     username: req.body.username
@@ -22,13 +24,15 @@ routes.route('/register').post((req, res) => {
       res.status(500).send(`Error on the server: ${err}`)
     } else {
       if (!user) {
+        let salt = bcrypt.genSaltSync(saltRounds)
+        let hash = bcrypt.hashSync(req.body.password, salt)
         Users.create(
           {
             documentId: uuidv1(),
             name: req.body.name,
             email: req.body.email,
             username: req.body.username,
-            password: req.body.password,
+            password: hash,
             documentType: req.body.documentType
           },
           function (error, user) {

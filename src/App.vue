@@ -1,12 +1,27 @@
 <template>
   <div id="app">
+    <header-bar v-if="!showBar"></header-bar>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header';
+
 export default {
   name: 'App',
+  components: {
+    'header-bar': Header,
+  },
+  computed: {
+    showBar() {
+      if (this.$route.path === '/login') {
+        return true;
+      }
+
+      return false;
+    },
+  },
 };
 </script>
 

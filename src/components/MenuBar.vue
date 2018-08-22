@@ -5,6 +5,7 @@
         <router-link to="/dashboard" :class="buttonClass('/dashboard')">Home</router-link>
         <router-link to="/kanban" :class="buttonClass('/kanban')">Kanban</router-link>
         <router-link to="/calendar" :class="buttonClass('/calendar')">Calendar</router-link>
+        <router-link to="/users" :class="buttonClass('/users')">Users</router-link>
       </div>
     </div>
   </div>

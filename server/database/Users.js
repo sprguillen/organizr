@@ -26,6 +26,9 @@ const users = new mongoose.Schema({
   updatedDate: {
     type: Date,
     default: Date.now
+  },
+  isAdmin: {
+    type: Boolean
   }
 }, { collection: 'documents' })
 

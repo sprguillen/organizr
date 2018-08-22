@@ -45,6 +45,7 @@ export default {
               type: 'success',
               text: 'Successfully logged in!',
             });
+            this.$router.push('/dashboard');
           }
         }).catch((error) => {
           this.$swal({
