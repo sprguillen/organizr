@@ -14,6 +14,10 @@ const config = require('./config')
 
 const saltRounds = 10;
 
+/**
+ * API for Registration
+ * Adds a new user and store to the database
+ */
 routes.route('/register').post((req, res) => {
   let usernameObj = {
     username: req.body.username
@@ -50,6 +54,12 @@ routes.route('/register').post((req, res) => {
   })
 })
 
+/**
+ * API for user login
+ * It will create a new token which will be later
+ * stored on the localStorage which will be handled
+ * by the client
+ */
 routes.route('/login').post((req, res) => {
   let credentials = {
     username: req.body.username

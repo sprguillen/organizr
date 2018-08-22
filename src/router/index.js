@@ -35,6 +35,9 @@ const router = new Router({
   ],
 });
 
+//This will check if the local storage of a particular user
+//exists, redirect to login if it doesnt, else redirect user
+//to the dashboard
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') === null) {
