@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import VueSweetalert2 from 'vue-sweetalert2';
+import Vuelidate from 'vuelidate';
 import VuePikaday from '@enrian/vue-pikaday';
 import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components';
 import '@enrian/vue-pikaday/dist/vue-pikaday.min.css';
@@ -15,6 +16,7 @@ Vue.use(MdButton);
 Vue.use(MdContent);
 Vue.use(MdTabs);
 Vue.use(VuePikaday);
+Vue.use(Vuelidate);
 
 /* eslint-disable no-new */
 new Vue({

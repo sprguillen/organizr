@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login';
 import Dashboard from '@/components/Dashboard';
+import Users from '@/components/Users';
+import Register from '@/components/Register';
 
 Vue.use(Router);
 
@@ -20,10 +22,14 @@ const router = new Router({
         guest: true,
       },
     },
-    // {
-    //   path: '/register',
-    //   component: Register,
-    // }
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: '/dashboard',
       name: 'dashboard',
@@ -32,12 +38,20 @@ const router = new Router({
         requiresAuth: true,
       },
     },
+    {
+      path: '/users',
+      name: 'users',
+      component: Users,
+      meta: {
+        requiresAuth: true,
+      },
+    },
   ],
 });
 
-//This will check if the local storage of a particular user
-//exists, redirect to login if it doesnt, else redirect user
-//to the dashboard
+// This will check if the local storage of a particular user
+// exists, redirect to login if it doesnt, else redirect user
+// to the dashboard
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') === null) {

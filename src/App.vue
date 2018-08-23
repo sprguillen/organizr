@@ -2,16 +2,19 @@
   <div id="app">
     <header-bar v-if="!showBar"></header-bar>
     <router-view/>
+    <footer-bar v-if="!showBar" class="fixed-bottom"></footer-bar>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import FooterBar from '@/components/FooterBar';
 
 export default {
   name: 'App',
   components: {
     'header-bar': Header,
+    'footer-bar': FooterBar,
   },
   computed: {
     showBar() {
